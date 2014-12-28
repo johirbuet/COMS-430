@@ -8,6 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import net.jcip.annotations.NotThreadSafe;
+
+@NotThreadSafe
 public class LazyInitRace implements Servlet {
 	private ExpensiveObject instance=null;
 	public ExpensiveObject getInstance(){
