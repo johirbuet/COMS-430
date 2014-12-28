@@ -6,6 +6,7 @@ public class Test {
 		// TODO Auto-generated method stub
 		UnsafeSequence obj=new UnsafeSequence();
 		System.out.println(	obj.getNext());
+		DemoServlet1 demo=new DemoServlet1();
 
 	}
 
