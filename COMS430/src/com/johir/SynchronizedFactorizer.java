@@ -17,7 +17,8 @@ public class SynchronizedFactorizer implements Servlet{
 
 	 @GuardedBy("this") private BigInteger lastNumber;
 	 @GuardedBy("this") private BigInteger[] lastFactors;
-	@Override
+	 
+	 @Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 		
@@ -42,7 +43,7 @@ public class SynchronizedFactorizer implements Servlet{
 	}
 
 	@Override
-	public void service(ServletRequest req, ServletResponse resp)
+	public synchronized void service(ServletRequest req, ServletResponse resp)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		   BigInteger i = extractFromRequest(req);
@@ -63,7 +64,8 @@ public class SynchronizedFactorizer implements Servlet{
         // Doesn't really factor
         return new BigInteger[]{i};
     }
+    
     void encodeIntoResponse(ServletResponse resp, BigInteger[] factors) {
     }
-
+    
 }
